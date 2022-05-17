@@ -1,1 +1,1 @@
-# rsocket-app-example
+# RSocket - Application example
