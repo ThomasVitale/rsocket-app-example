@@ -1,0 +1,15 @@
+apiVersion: kind.x-k8s.io/v1alpha4
+kind: Cluster
+name: rsocket-cluster
+nodes:
+  - role: control-plane
+    image: kindest/node:v1.23.4@sha256:0e34f0d0fd448aa2f2819cfd74e99fe5793a6e4938b328f657c8e3f81ee0dfb9
+  - role: worker
+    image: kindest/node:v1.23.4@sha256:0e34f0d0fd448aa2f2819cfd74e99fe5793a6e4938b328f657c8e3f81ee0dfb9
+    extraPortMappings:
+      - containerPort: 80
+        hostPort: 80
+        listenAddress: "0.0.0.0"
+      - containerPort: 443
+        hostPort: 443
+        listenAddress: "0.0.0.0"
